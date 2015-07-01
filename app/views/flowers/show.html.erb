@@ -1,0 +1,85 @@
+<% provide(:title, @flower.name.html_safe) %>
+<div class="row center">
+  <div class="col-md-10 col-md-offset-1">
+      <%= image_tag(@flower.image_url, class: "img-responsive") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="details">
+      <h1 class="flower_heading"><%= @flower.name %></h1>
+
+      <h5 class="botanical_name">(<%= @flower.bot_name %>)</h5>
+      
+      <% if @flower.family.present? %>
+        <h5 class="botanical_name">Family: <%= @flower.family %></h5>
+      <% end %>
+
+      <% if @flower.other_names.present? %>
+        <p class="flower_other_names">Other names: <%= @flower.other_names %></h2>
+      <% end %>
+
+      <h3 class="flower_subheading">Places</h3>
+      <p><%= @flower.place %></p>
+
+      <h3 class="flower_subheading", style="clear: both;">Climate</h3>
+      <p><%= @flower.climate %></p>
+
+      <% if @flower.petals.present? %>
+        <h3 class="flower_subheading">Petals</h3>
+        <p><%= @flower.petals %></p>
+      <% end %>
+
+      <h3 class="flower_subheading">Size</h3>
+      <p><%= @flower.size %></p>
+
+      <% if !@flower.bool_var %>
+
+        <h3 class="flower_subheading", style="margin-top: 1.5em;">Significance</h3>
+        <p><%= @flower.significance %></p>
+
+        <% if @flower.comment.present? %>
+          <h3 class="flower_subheading">Comment</h3>
+          <p><%= @flower.comment %></p>
+        <% end %>
+
+        <h3 class="flower_subheading">Description</h3>
+        <p><%= @flower.description %></p>
+
+        <h3 class="flower_subheading">Colour</h3>
+        <p><%= @flower.colour %></p>
+
+      <% else %>
+
+        <h3 class="flower_subheading">Variants</h3>
+        <hr/>
+        <% @flower.child_flowers.each do |variant| %>
+          <div class="row variant">
+            <div class="col-md-8">
+              <%= image_tag(variant.image_url, class: "img-responsive variant_img") %>
+            </div>
+            <div class="col-md-4">
+              <h3 class="flower_subheading">Description</h3>
+              <p><%= variant.description %></p>
+              <h3 class="flower_subheading">Colour</h3>
+              <p><%= variant.colour %></p>
+              <h3 class="flower_subheading">Significance</h3>
+              <p><%= variant.significance %></p>
+              <h3 class="flower_subheading">Comment</h3>
+              <p><%= variant.comment %></p>
+            </div>
+          </div>
+          <div class="row">
+            <hr/>
+          </div>
+        <% end %>
+
+      <% end %>
+
+      <a href="#">
+        <span class="glyphicon glyphicon-menu-up", style="float: right; color: #ff4e50;"></span>
+      </a>
+    </div>
+  </div>
+</div>
+

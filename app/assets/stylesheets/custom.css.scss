@@ -1,0 +1,50 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background: url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 80px;
+  color: #000;
+}
+
+#logo {
+  color: #f00;
+  font-size: 2em;
+  float: left;
+  margin-top: 0.3em;
+}
+
+/* flower page */
+
+.details {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2em;
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
+  margin-bottom: 2em;
+  .flower_heading {
+    clear: both;
+    text-align: center;
+    font-weight: 300;
+  }
+  .flower_other_names {
+    text-align: center;
+  }
+  .botanical_name {
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+  .flower_subheading {
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+}
+
+.variant {
+  padding: 1em;
+}
