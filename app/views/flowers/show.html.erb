@@ -33,7 +33,7 @@
       <h3 class="flower_subheading">Size</h3>
       <p><%= @flower.size %></p>
 
-      <% if !@flower.bool_var %>
+      <% if !@flower.variants.present? %>
 
         <h3 class="flower_subheading", style="margin-top: 1.5em;">Significance</h3>
         <p><%= @flower.significance %></p>
@@ -53,7 +53,7 @@
 
         <h3 class="flower_subheading">Variants</h3>
         <hr/>
-        <% @flower.child_flowers.each do |variant| %>
+        <% @flower.variants.each do |variant| %>
           <div class="row variant">
             <div class="col-md-8">
               <%= image_tag(variant.image_url, class: "img-responsive variant_img") %>
@@ -82,4 +82,3 @@
     </div>
   </div>
 </div>
-

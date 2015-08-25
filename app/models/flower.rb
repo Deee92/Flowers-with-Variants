@@ -1,7 +1,9 @@
 class Flower
   include Mongoid::Document
   include Mongoid::Slug
-  recursively_embeds_many
+  include Mongoid::Elasticsearch
+  elasticsearch!
+  embeds_many :variants
   field :name, type: String
   slug :name
   field :other_names, type: String
@@ -17,5 +19,6 @@ class Flower
   field :climate, type: String
   field :image_url, type: String
   field :thumbnail_url, type: String
-  field :bool_var, type: Boolean
+  field :source, type: String
+  field :url, type: String
 end
